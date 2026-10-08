@@ -20,6 +20,29 @@
   display: block;
   width: 100%;
   height: auto;
+  overflow: visible;
   shape-rendering: crispEdges;
+  transition: filter 0.3s ease;
+}
+
+.logo-outline {
+  transition: fill 0.3s ease;
+}
+
+:global(html.dark) .logo-outline,
+:global(.header-dark) .logo-outline {
+  fill: #ffffff;
+}
+
+:global(html.dark) .logo-svg,
+:global(.header-dark) .logo-svg {
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.85))
+          drop-shadow(0 0 6px rgba(254, 227, 75, 0.45))
+          drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+}
+
+.logo-svg:hover {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.95))
+          drop-shadow(0 0 10px rgba(254, 227, 75, 0.65));
 }
 </style>

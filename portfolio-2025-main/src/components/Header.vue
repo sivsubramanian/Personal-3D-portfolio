@@ -13,9 +13,11 @@ import ThemeToggle from "./ThemeToggle.vue";
 import { isFeatureEnabled } from "../utils/features";
 import { useRouter } from "../composables/useRouter";
 import { useFirstRoute } from "../composables/useFirstRoute";
+import { useTheme } from "../composables/useTheme";
 
 const router = useRouter();
 const { isFirstRoute } = useFirstRoute();
+const { isDark } = useTheme();
 
 const scrolledPastHeroVisible = ref(false);
 const { isDarkTheme } = useHeaderTheme({
@@ -32,6 +34,8 @@ const { isDarkTheme } = useHeaderTheme({
     }
   },
 });
+
+const isEffectiveDarkTheme = computed(() => isDarkTheme.value || isDark.value);
 
 const handleBackClick = () => {
   // If it's the first route the user visited, navigate to home
@@ -51,7 +55,7 @@ const handleLogoClick = () => {
 const classNames = computed(() => {
   return {
     header: true,
-    "header-dark": isDarkTheme.value,
+    "header-dark": isEffectiveDarkTheme.value,
     "header-scrolled": scrolledPastHeroVisible.value,
     [`project-${projectId.value}`]: projectId.value !== null,
   };
@@ -106,8 +110,8 @@ const getInTouchClassNames = computed(() => {
         >{{ t("resume") }}</Button
       >
 
-      <ThemeToggle :isDarkTheme="isDarkTheme" />
-      <SoundsToggle class="header-sounds-toggle" :isDarkTheme="isDarkTheme" v-if="isFeatureEnabled('sounds')" />
+      <ThemeToggle :isDarkTheme="isEffectiveDarkTheme" />
+      <SoundsToggle class="header-sounds-toggle" :isDarkTheme="isEffectiveDarkTheme" v-if="isFeatureEnabled('sounds')" />
     </div>
   </header>
 
