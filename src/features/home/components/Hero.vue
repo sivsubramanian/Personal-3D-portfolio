@@ -11,7 +11,7 @@ import AppearingText from "../../../components/AppearingText.vue";
     <div class="hero-content grid">
       <div class="hero-content-inner" id="hero-content-inner">
         <div class="hero-content-copys">
-          <h1 class="hero-title">Siva<br />Subramanian M</h1>
+          <h1 class="hero-title">Siva<br /><span class="hero-title-nowrap">Subramanian M</span></h1>
           <Banner class="hero-banner" :copy="t('job-title')" v-if="!preloaderVisible" animated />
         </div>
       </div>
@@ -86,8 +86,17 @@ import AppearingText from "../../../components/AppearingText.vue";
   &-title {
     font-weight: 900;
     letter-spacing: 0.02em;
-    font-size: clamp(32px, 7vw, var(--font-size-title-lg));
-    line-height: 1.05;
+    font-size: clamp(26px, 6.8vw, 34px);
+    line-height: 1.08;
+
+    &-nowrap {
+      white-space: nowrap;
+    }
+
+    @include mixins.mq("sm") {
+      font-size: clamp(32px, 7vw, var(--font-size-title-lg));
+      line-height: 1.05;
+    }
 
     @include mixins.landscape {
       font-size: clamp(30px, 3.8vw, 54px);
@@ -106,12 +115,13 @@ import AppearingText from "../../../components/AppearingText.vue";
 
   &-banner {
     position: absolute;
-    bottom: 0;
-    right: -12px;
+    bottom: -6px;
+    right: 0;
     z-index: 10;
-    transform: rotate(-5deg) translate(0, 65%);
+    transform: rotate(-4deg) translate(0, 100%);
 
     @include mixins.mq("sm") {
+      bottom: 0;
       right: -16px;
       transform: rotate(-5deg) translate(0, 70%);
     }
