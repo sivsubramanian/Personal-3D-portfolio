@@ -118,7 +118,7 @@ watchEffect((onInvalidate) => {
       }
 
       &-md {
-        font-size: var(--font-size-title-xxs);
+        font-size: clamp(13px, 3.8vw, var(--font-size-title-xxs));
 
         @include mixins.mq("lg") {
           font-size: var(--font-size-title-xs);

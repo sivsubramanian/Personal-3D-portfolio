@@ -54,6 +54,7 @@ import AppearingText from "../../../components/AppearingText.vue";
       align-items: center;
       justify-content: center;
       width: fit-content;
+      max-width: calc(100vw - max(var(--space-outer) * 2, 28px));
       position: relative;
       left: 50%;
       transform: translateX(-50%);
@@ -86,7 +87,7 @@ import AppearingText from "../../../components/AppearingText.vue";
   &-title {
     font-weight: 900;
     letter-spacing: 0.02em;
-    font-size: clamp(26px, 6.8vw, 34px);
+    font-size: clamp(24px, 6.6vw, 34px);
     line-height: 1.08;
 
     &-nowrap {

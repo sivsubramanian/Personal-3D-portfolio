@@ -115,6 +115,7 @@ const getInTouchClassNames = computed(() => {
 .header {
   position: fixed;
   top: 0;
+  top: env(safe-area-inset-top, 0px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -122,6 +123,8 @@ const getInTouchClassNames = computed(() => {
   transform: translateX(-50%);
   width: var(--breakpoint-xxxl);
   padding: 0 var(--space-outer);
+  padding-left: max(var(--space-outer), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--space-outer), env(safe-area-inset-right, 0px));
   max-width: 100%;
   z-index: var(--z-index-header);
   height: var(--height-header);
@@ -153,7 +156,7 @@ const getInTouchClassNames = computed(() => {
 
   &-left {
     position: absolute;
-    left: var(--space-outer);
+    left: max(var(--space-outer), env(safe-area-inset-left, 0px));
     top: 50%;
     transform: translateY(-50%);
     pointer-events: auto;
@@ -164,9 +167,9 @@ const getInTouchClassNames = computed(() => {
   &-get-in-touch {
     display: flex;
     width: fit-content;
-    height: 36px;
-    padding: 0 16px;
-    font-size: 13px;
+    height: clamp(32px, 8.5vw, 40px);
+    padding: 0 clamp(12px, 3.8vw, 20px);
+    font-size: clamp(11.5px, 3.2vw, 13px);
     align-items: center;
 
     @include mixins.mq("md") {
@@ -182,7 +185,7 @@ const getInTouchClassNames = computed(() => {
 
   &-right {
     position: absolute;
-    right: var(--space-outer);
+    right: max(var(--space-outer), env(safe-area-inset-right, 0px));
     top: 50%;
     transform: translateY(-50%);
     pointer-events: auto;
@@ -212,7 +215,7 @@ const getInTouchClassNames = computed(() => {
     }
 
     &-image {
-      width: 54px;
+      width: clamp(44px, 12vw, 56px);
       height: auto;
 
       @include mixins.mq("md") {
