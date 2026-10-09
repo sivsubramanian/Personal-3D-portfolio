@@ -9,6 +9,7 @@ import { projectId } from "../composables/useRouteObserver";
 import ButtonRound from "./ButtonRound.vue";
 import ArrowRight from "./icons/ArrowRight.vue";
 import SoundsToggle from "./SoundsToggle.vue";
+import Resume from "./icons/Resume.vue";
 import { isFeatureEnabled } from "../utils/features";
 import { useRouter } from "../composables/useRouter";
 import { useFirstRoute } from "../composables/useFirstRoute";
@@ -89,6 +90,22 @@ const getInTouchClassNames = computed(() => {
       >
         <Logo class="header-logo-image" />
       </div>
+
+      <ButtonRound
+        renderAs="a"
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="accent"
+        size="sm"
+        href="https://drive.google.com/file/d/1ShSUQ0S5LI2Q8iANIl8-tOSuUjERpIQ0/view"
+        class="header-resume-mobile"
+        :aria-label="t('resume')"
+        data-cursor="circle-white"
+        data-sound="click"
+        data-hoversound="hover"
+      >
+        <Resume class="header-resume-icon" />
+      </ButtonRound>
     </div>
     <div class="header-right">
 
@@ -159,6 +176,23 @@ const getInTouchClassNames = computed(() => {
     pointer-events: auto;
     display: flex;
     align-items: center;
+    gap: var(--space-xs);
+  }
+
+  &-resume-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    @include mixins.mq("md") {
+      display: none;
+    }
+
+    &-icon {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   &-get-in-touch {
