@@ -66,6 +66,9 @@ npm install
 ├── public/              # Static public assets (fonts, icons, meta)
 ├── src/
 │   ├── assets/          # Models (.glb), textures, sounds, styles
+│   │   ├── images/      # Active project imagery (Rebook, Netflix, Talkify)
+│   │   ├── models/      # 3D GLTF models (avatar, room, desk, etc.)
+│   │   └── textures/    # PBR & baked shader textures
 │   ├── components/      # Reusable Vue components (Header, Logo, Buttons)
 │   ├── composables/     # Vue composables (routing, scroll, audio)
 │   ├── content/         # Project metadata and case studies
@@ -79,6 +82,8 @@ npm install
 ├── package.json         # Project scripts & dependencies
 └── vite.config.ts       # Vite & GLSL build configuration
 ```
+
+> **Note on Asset Optimization:** Unused demo assets, empty directories, and obsolete template legal notices have been cleaned up to maintain a lightweight, production-grade repository while keeping 100% of active 3D models and interactive features intact.
 
 ---
 
