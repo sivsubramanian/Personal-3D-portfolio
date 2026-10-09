@@ -1,43 +1,87 @@
-# Portfolio (2025)
+# 3D Personal Portfolio - Sivasubramanian M
 
-Personal portfolio site: project case studies, lightweight 3D and shader demos, bilingual copy (English and German).
+An interactive, 3D personal portfolio website showcasing data science, AI projects, and UI/UX engineering work. Built with immersive WebGL graphics, custom shaders, smooth animations, and sound effects.
 
-Built with **Vue 3**, **TypeScript**, and **Vite**. Motion via **GSAP** and **Lenis**, 3D via **three.js**, audio via **Howler**. GLSL is compiled through **vite-plugin-glsl**.
+---
 
-## Scripts
+## 🚀 Features
 
-| Command        | Description                          |
-| -------------- | ------------------------------------ |
-| `npm run dev`   | Dev server on port **3000** (`strictPort`) |
-| `npm run build` | `vue-tsc` then production bundle to `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run typecheck` | Typecheck only (`vue-tsc -b`) |
+- **Interactive 3D Scene**: Custom 3D room, avatar, and lab models powered by **Three.js** and GLSL shaders.
+- **Smooth Navigation & Scroll**: Inertia scrolling and synchronized timeline animations powered by **Lenis** and **GSAP**.
+- **Interactive Audio**: Immersive ambient sounds and audio feedback managed via **Howler.js**.
+- **Responsive & Clean UI**: Crafted with **Vue 3** and modern SCSS.
+- **Showcase Projects**:
+  - **Rebook**: Campus book exchange platform.
+  - **Netflix Analytics Dashboard**: Interactive Power BI & Python analytics.
+  - **Talkify & Cricket Scoreboard UI**: High-fidelity Figma UI/UX prototyping.
 
-## Content
+---
 
-- **Projects**: `src/content/projects/{en,de}/<slug>.ts` — copy, tags, media, links. Slugs must align with `projectIds` in `src/content/projects/index.ts`.
-- **Previews / listing**: `src/content/projects/previews/`.
-- **Tags**: variants and labels live in `src/components/tagVariants.ts` (used by `Tag.vue` and content types).
+## 🛠️ Tech Stack
 
-## Stack (high level)
+- **Framework**: [Vue 3](https://vuejs.org/) (`<script setup>`)
+- **3D & Graphics**: [Three.js](https://threejs.org/) & Custom GLSL Shaders via [vite-plugin-glsl](https://github.com/UstymUkhman/vite-plugin-glsl)
+- **Animation**: [GSAP](https://gsap.com/) & [Lenis](https://lenis.darkroom.engineering/)
+- **Audio Engine**: [Howler.js](https://howlerjs.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: SCSS / CSS Custom Properties
 
-- Vue 3 (`<script setup>`), SCSS with shared mixins (`src/assets/styles/`)
-- i18n helpers under `src/i18n/`
-- WebGL / GLSL under `src/three/` where applicable
+---
 
-## Credits & Attribution
+## 💻 Getting Started
 
-This project was created and designed by David Heckhoff.
+### Prerequisites
 
-If you use this project or substantial parts of its source code as a base for your own portfolio or work, attribution must be preserved.
+- Node.js (v18 or higher recommended)
+- npm
 
-Please keep:
+### Installation
 
-- existing credit comments in the source code
-- this attribution section in the README
-- a visible reference to the original project/repository in derivative works
+```bash
+# Clone the repository
+git clone https://github.com/sivsubramanian/Personal-3D-portfolio.git
 
-Original portfolio:
--> https://david-hckh.com
+# Navigate into the project directory
+cd Personal-3D-portfolio
 
-Commercial reuse or redistribution of substantial portions of this project without permission is prohibited.
+# Install dependencies
+npm install
+```
+
+### Development Scripts
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts local dev server at `http://localhost:3000` |
+| `npm run build` | Typechecks with `vue-tsc` and compiles production bundle to `dist/` |
+| `npm run preview` | Locally serves the production build |
+| `npm run typecheck` | Runs TypeScript type checking |
+
+---
+
+## 📁 Project Structure
+
+```text
+├── public/              # Static public assets (fonts, icons, meta)
+├── src/
+│   ├── assets/          # Models (.glb), textures, sounds, styles
+│   ├── components/      # Reusable Vue components (Header, Logo, Buttons)
+│   ├── composables/     # Vue composables (routing, scroll, audio)
+│   ├── content/         # Project metadata and case studies
+│   ├── features/        # Home and feature-specific components
+│   ├── i18n/            # Internationalization & translations
+│   ├── three/           # Three.js scene setup, shaders, 3D object controllers
+│   ├── types/           # TypeScript definitions
+│   ├── utils/           # Helper utilities
+│   ├── App.vue          # Root component
+│   └── main.ts          # Application entry point
+├── package.json         # Project scripts & dependencies
+└── vite.config.ts       # Vite & GLSL build configuration
+```
+
+---
+
+## 🙌 Credits & Acknowledgements
+
+This portfolio was developed with great inspiration and technical reference from the work of **David Heckhoff** ([david-hckh.com](https://david-hckh.com)). Special appreciation for his creative 3D concepts, shaders, and interactive web patterns.
